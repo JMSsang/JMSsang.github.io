@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>  
+    <link rel="stylesheet" href="style.css">
+    <script src="./data.js"></script>
+</head>
+<body>
+<!-- .wrap 배경화면 -->
+<div class="wrap">
+    <div class="view">
+        <p class="text"></p>
+        <br>
+        <p class="name"></p>
+    </div>
+</div>
+
+<script>
+    // 난수 생성하는 함수(최소값, 최대값)
+    function range(min,max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    // 변수 초기화
+    var randomIndex = 0;
+
+$(document).ready(function(){
+    //초 마다 한번 실행하는 코드
+    setInterval(function(){
+        randomIndex = range(0,9);  
+        view_text = data[randomIndex].text;
+        view_name = data[randomIndex].name;
+        $('.view').fadeOut('fast');
+        setTimeout(function(){
+            $('.view .text').text(view_text);
+            $('.view .name').text(view_name);  
+            $('.view').fadeIn('slow');
+        },1000);},
+    9000);   //초관리 하는 곳 | 1000 = 1초
+})
+</script>
+
+</body>
+</html>
