@@ -32,12 +32,10 @@ $(document).ready(function(){
     //초 마다 한번 실행하는 코드
     setInterval(function(){
         randomIndex = range(0,9);  
-        view_text = data[randomIndex].text;
-        view_name = data[randomIndex].name;
+        view_text = `<p>`+data[randomIndex].text+`</p>`;
         $('.view').fadeOut('fast');
         setTimeout(function(){
-            $('.view .text').text(view_text);
-            $('.view .name').text(view_name);  
+            $('.view .text').append(view_text);  
             $('.view').fadeIn('slow');
         },1000);},
     9000);   //초관리 하는 곳 | 1000 = 1초
