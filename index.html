@@ -34,6 +34,7 @@ $(document).ready(function(){
         randomIndex = range(0,9);  
         view_text = `<p>`+data[randomIndex].text+`</p>`;
         $('.view').fadeOut('fast');
+        $('.view .text p').remove();
         setTimeout(function(){
             $('.view .text').append(view_text);  
             $('.view').fadeIn('slow');
