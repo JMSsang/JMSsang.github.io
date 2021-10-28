@@ -31,7 +31,9 @@
 $(document).ready(function(){
     //초 마다 한번 실행하는 코드
     setInterval(function(){
-        randomIndex = range(0,9);  
+        //randomIndex = range(0,9);  
+        randomIndex = randomIndex % 9;
+        randomIndex++;
         view_text = `<p>`+data[randomIndex].text+`</p>`;
         $('.view').fadeOut('fast');
         $('.view .text p').remove();
